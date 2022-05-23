@@ -1,0 +1,17 @@
+name: CD
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Deploy Documentations
+        uses: PowerDocs-net/deploy@v1
+        with:
+          project_id: 113
+          api_key: ${{ secrets.POWERDOCS_API_KEY }}

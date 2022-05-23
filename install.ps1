@@ -52,7 +52,7 @@ foreach ($i in $clients) {
         param($i, $packages)
         Write-Host "verifying chocolatey is installed on host $i"
         if (!(Test-Path "$($env:ProgramData)\chocolatey\choco.exe")) {
-            Write-FPLog -Category Info -Message "installing chocolatey..."
+            Write-Host "installing chocolatey..."
             try {
                 Set-ExecutionPolicy Bypass -Scope Process -Force
                 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
