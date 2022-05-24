@@ -62,11 +62,13 @@ foreach ($i in $clients) {
             Write-Host "chocolatey is not installed on host $i"
         }
         
-        Write-Host "updating chocolatey on host $i"
+        Write-Host "updating chocolatey package(s) on host $i"
         if ($packages) {
             choco upgrade $packages
-        } else {
+        } elseif ($all) {
             choco upgrade all
+        } else {
+            Write-Host "no package(s) specified"
         }
     }
 
